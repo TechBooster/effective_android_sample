@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NFC Tag Writer for ZANNEN</string>
+    <string name="write_to_tag">Write to Tag</string>
+    <string name="default_note_text"></string>
+    <string name="description">Please enter the theme name.</string>
+    <string name="start_message">Touch tag to write</string>
+    <string name="checkbox_text">Restart after setting the theme</string>
+    <string name="end_message">Wrote message to pre-formatted tag.</string>
+    <string name="error_readonly">Tag is read-only.</string>
+    <string name="error_over">Capacity of the tag is insufficient.</string>
+    <string name="error_format">Failed to format tag.</string>
+    <string name="error_no_support">Tag doesn\'t support NDEF.</string>
+    <string name="error_write">Failed to write tag.</string>
+</resources>

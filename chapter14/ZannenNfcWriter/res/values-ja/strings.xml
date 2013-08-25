@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NFC Tag Writer for ZANNEN</string>
+    <string name="write_to_tag">NFC タグに書き込む</string>
+    <string name="default_note_text"></string>
+    <string name="description">設定したいテーマ名を入力してください</string>
+    <string name="start_message">NFC タグにタッチしてください</string>
+    <string name="checkbox_text">テーマ設定後に再起動する</string>
+    <string name="end_message">NFC タグへの書き込みが完了しました</string>
+    <string name="error_readonly">NFC タグは読み込み専用です</string>
+    <string name="error_over">NFC タグの容量不足です</string>
+    <string name="error_format">NFC タグのフォーマットに失敗しました</string>
+    <string name="error_no_support">NDEF をサポートしてない NFC タグです</string>
+    <string name="error_write">NFC タグへの書き込みに失敗しました</string>
+</resources>
