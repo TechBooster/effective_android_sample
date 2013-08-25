@@ -1,0 +1,2 @@
+*.bat eol=crlf
+custom_rules.xml eol=crlf

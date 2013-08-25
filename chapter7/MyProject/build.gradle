@@ -1,0 +1,63 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.5.+'
+    }
+}
+apply plugin: 'android'
+
+configurations {
+    apt
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')
+
+    apt files('compile-libs/androidannotations-2.7.1.jar')
+    compile files('libs/androidannotations-api-2.7.1.jar')
+
+    // if you'd like to depend on jars in maven repository, use these.
+    //apt "com.googlecode.androidannotations:androidannotations:2.7.1")
+    //compile "com.googlecode.androidannotations:androidannotations-api:2.7.1")
+}
+
+android {
+    compileSdkVersion 17
+    buildToolsVersion "17.0.0"
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+
+        instrumentTest.setRoot('tests')
+    }
+}
+
+android.applicationVariants.all { variant ->
+    def aptOutput = file("${project.buildDir}/source/r/${variant.dirName}")
+
+    variant.javaCompile.doFirst {
+        println "*** compile doFirst ${variant.name}, aptOutput=${aptOutput}"
+        aptOutput.mkdirs()
+        aptOutput.eachFileRecurse groovy.io.FileType.FILES, {
+            if (it.name.equals('R.java')) {
+                return
+            }
+            it.delete()
+        }
+        variant.javaCompile.options.compilerArgs += [
+                '-processorpath', configurations.apt.getAsPath(),
+                '-AandroidManifestFile=' + variant.processResources.manifestFile,
+                '-s', aptOutput
+        ]
+    }
+}
