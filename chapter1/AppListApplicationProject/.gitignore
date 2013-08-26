@@ -1,0 +1,53 @@
+# Ant のビルド設定ファイルです。
+# android update project コマンドで生成できます
+# カスタマイズする場合は custom_rules.xml に記述します
+build.xml
+# apt が生成するソースコードの置き場所です
+.apt_generated/
+
+# Eclipse が生成するバイナリの置き場所です
+bin
+# Eclipse(ADT)が生成するソースコード等の置き場所です
+gen
+# Eclipse のローカルな設定情報の置き場所です
+.settings
+# Eclipse のプロジェクト設定ファイルです
+# リポジトリに入れておくとインポートが楽になるので入れておく運用もありですが
+# Eclipse に生成させることもできるので除外しています
+# 入れる場合は .classpath も入れてください
+.project
+# Eclipse のプロジェクトで使用するファイルです
+# リポジトリに入れておくとインポートが楽になるので入れておく運用もありですが
+# Eclipse に生成させることもできるので除外しています
+.classpath
+# Eclipse の apt factory の設定が記述されるファイルです
+.factorypath
+
+# Gradle 自体が使用するファイルが置かれます
+.gradle/
+# Gradle が生成するファイルが置かれます
+build/
+
+# Android SDK に関する定義などが記述されます
+# android update project コマンドで生成できます
+local.properties
+
+# リリース用の証明書のパスワードを書いたりするのに使うのでリポジトリには入れない
+gradle.properties
+
+
+# AndroidStudio のローカルな設定ファイルです
+*.iml
+# AndroidStudio のアプリ実行の設定ファイルなので ignore 対象から除外します
+!.idea/runConfigurations/*
+# AndroidStudio のファイルです
+.idea/*.xml
+# AndroidStudio のファイルです
+.idea/.name
+# AndroidStudio のファイルです
+.idea/copyright/
+# AndroidStudio のファイルです
+.idea/libraries/
+# AndroidStudio のファイルです
+.idea/scopes/
+
