@@ -1,0 +1,17 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1373265379000 1496 1b3a1cb88d626237e79e0cfa1499098e162d4261 /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/src/main/res/layout/list_item_card.xml
+1373262880000 184 ce88ab67628559124d08ec5d086f539637e69d28 /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/src/main/res/layout/list_header_footer.xml
+1373250411000 7783 03172612ec7d8d2cc6295a185410c3e6501771aa /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/src/main/res/drawable-hdpi/ic_launcher.png
+1373250411000 381 b129b276e01126de5b3b753572ac67cbfc19454c /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/src/main/res/values-v14/styles.xml
+1373250412000 24780 6c2954bdacb8129ac00edfd084b98daf226518e3 /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/src/main/res/drawable-xxhdpi/ic_launcher.png
+1373265442000 128 321fe7fa9b375e05c35f435aa71e710ad89d788a /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/src/main/res/values/colors.xml
+1373250411000 12356 75154d4f6e93c8832a74d3c27c8cf0d44672ea3e /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/src/main/res/drawable-xhdpi/ic_launcher.png
+1373250956000 286 42e0914803b63fe58ad287b9c04607d012fc4f98 /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/src/main/res/layout/activity_main.xml
+1373252457000 260 03b5ec9a73e50f4fa2b716906647b512d3669f3d /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/src/main/res/values/styles.xml
+1373250411000 3760 9d45e7de00dac30e9738dc369dece2835bf9677e /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/src/main/res/drawable-mdpi/ic_launcher.png
+1373250411000 324 aa1f5f1723de9aee2669dc44a26fbc0ce776d35f /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/src/main/res/values-v11/styles.xml
+1373250411000 244 045ff451db7cd8e61285502b8c9bbf7405f2078d /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/src/main/res/menu/main.xml
+1373250411000 230 55f9aa640e2e46450492c5bd8aa4c451262a7240 /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/src/main/res/values/strings.xml
+1373250411000 211 4e1904afba59d31e5cd6133f6a4c360fa9a5913f /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/src/main/res/values/dimens.xml

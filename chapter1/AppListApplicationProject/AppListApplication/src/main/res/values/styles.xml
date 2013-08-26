@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="@android:windowBackground">@drawable/window_bg</item>
+        <item name="@android:colorBackground">@color/window_bg</item>
+    </style>
+
+</resources>

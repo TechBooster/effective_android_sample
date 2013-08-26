@@ -1,0 +1,17 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1373264194000 857 a95b21a19f3c8b19b4542eb678eafe89499cded4 /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/build/classes/debug/com/example/applistapplication/R.class
+1373252552000 476 1f4843d8a524623e42bf3d2596c09244d7007e68 /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/build/classes/debug/com/example/applistapplication/R$drawable.class
+1373264194000 467 75c97935df480a5b3a8713038c43f9898d39b752 /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/build/classes/debug/com/example/applistapplication/R$style.class
+1373265159000 2887 1f098bbde02c6a938d9e8b323b99058f225a857f /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/build/classes/debug/com/example/applistapplication/AppListFragment.class
+1373252552000 497 833b8753efe051880d80ac5f8b4291b107f9cd08 /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/build/classes/debug/com/example/applistapplication/R$dimen.class
+1373252552000 432 871eeb266ce51ec8982d22f0020d067d2414b9e5 /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/build/classes/debug/com/example/applistapplication/R$color.class
+1373252552000 841 0e4a4b0e6c433069a9fc5cf972004d5fd6e18fd1 /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/build/classes/debug/com/example/applistapplication/MainActivity.class
+1373251062000 376 f361216443d3eab21536efb1e374752db61803a7 /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/build/classes/debug/com/example/applistapplication/R$attr.class
+1373264194000 513 bf901c817b205c55a2ee50e7fd66096c01877aa8 /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/build/classes/debug/com/example/applistapplication/R$id.class
+1373264194000 508 a5d607faa86be72bdb5dcb532a756828b926081c /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/build/classes/debug/com/example/applistapplication/R$string.class
+1373251062000 369 903e8313c8cc31150a4d4a392113124b70b5033d /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/build/classes/debug/com/example/applistapplication/BuildConfig.class
+1373265297000 2826 7ec3da81132405d1e3b04fe2a77a6894a8c7bea2 /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/build/classes/debug/com/example/applistapplication/AppListFragment$CardListAdapter.class
+1373264194000 519 759bff8ad6cf2508d6b4327f983cddd409f90961 /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/build/classes/debug/com/example/applistapplication/R$layout.class
+1373264194000 424 40889450d88d34928cc06a1bbafdb36930948507 /Users/yanzm/Projects/AppListApplicationProject/AppListApplication/build/classes/debug/com/example/applistapplication/R$menu.class

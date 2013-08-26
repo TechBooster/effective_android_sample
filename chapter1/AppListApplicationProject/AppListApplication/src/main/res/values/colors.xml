@@ -1,0 +1,4 @@
+<resources>
+    <color name="window_bg">#ebedf0</color>
+    <drawable name="window_bg">@color/window_bg</drawable>
+</resources>
