@@ -1,0 +1,16 @@
+.classpath
+.project
+.factorypath
+.settings/
+
+bin/
+gen/
+build/
+libs/
+factory/
+
+.idea/
+AndroidProject.iml
+
+.gradle/
+

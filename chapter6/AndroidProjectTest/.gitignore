@@ -1,0 +1,14 @@
+.classpath
+.project
+.factorypath
+.settings/
+
+bin/
+gen/
+build/
+libs/
+
+.idea/
+
+.gradle/
+
