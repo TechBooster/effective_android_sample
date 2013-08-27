@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">C84_techbooster_sample</string>
+    <string name="action_lisence">ライセンス</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="close">閉じる</string>
+
+</resources>
