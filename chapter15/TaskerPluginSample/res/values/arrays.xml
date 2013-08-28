@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="display_states">
+        <item>@string/list_off</item>
+        <item>@string/list_on</item>
+    </string-array>
+
+</resources>
