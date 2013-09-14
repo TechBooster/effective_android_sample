@@ -1,4 +1,4 @@
-package net.nkzn.android.sample.maps.c84_techbooster;
+package net.nkzn.android.sample.maps.effective_android;
 
 import android.graphics.Color;
 
