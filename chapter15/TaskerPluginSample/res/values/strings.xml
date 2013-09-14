@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="plugin_name">Superdry Tasker Plugin</string>
+
+    <!-- Action plugin -->
+    <string name="action_plugin_title">Superdry Action</string>
+    <string name="message_hint">Alert Message</string>
+
+    <!-- State plugin -->
+    <string name="state_plugin_title">Superdry State</string>
+    <string name="list_on">On</string>
+    <string name="list_off">Off</string>
+    <string name="blurb_on">On</string>
+    <string name="blurb_off">Off</string>
+
+</resources>

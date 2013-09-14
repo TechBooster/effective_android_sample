@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.superdry.sample.tasker"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-sdk
+        android:minSdkVersion="17"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/plugin_name" >
+        <activity
+            android:name="org.superdry.sample.tasker.activity.LaunchActivity"
+            android:label="@string/plugin_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.INFO" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.superdry.sample.tasker.activity.EditActionActivity"
+            android:exported="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/action_plugin_title"
+            android:theme="@style/Theme.Locale.Dark"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="org.superdry.sample.tasker.receiver.action.FireReceiver"
+            android:exported="true"
+            android:process=":background"
+            tools:ignore="ExportedReceiver" >
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="org.superdry.sample.tasker.activity.EditStateActivity"
+            android:exported="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/state_plugin_title"
+            android:theme="@style/Theme.Locale.Dark"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_CONDITION" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="org.superdry.sample.tasker.receiver.state.QueryReceiver"
+            android:exported="true"
+            android:process=":background"
+            tools:ignore="ExportedReceiver" >
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.QUERY_CONDITION" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="org.superdry.sample.tasker.receiver.state.BackgroundService"
+            android:exported="false"
+            android:process=":background" />
+    </application>
+
+</manifest>
