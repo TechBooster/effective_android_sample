@@ -1,4 +1,4 @@
-package net.nkzn.android.sample.maps.c84_techbooster;
+package net.nkzn.android.sample.maps.effective_android;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -11,8 +11,8 @@ import android.view.MenuItem;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
