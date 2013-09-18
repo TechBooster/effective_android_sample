@@ -67,7 +67,7 @@ sourceSets {
 }
 
 // for apt
-android.applicationVariants.each { variant ->
+android.applicationVariants.all { variant ->
 	def aptOutput = file(generatedSrc)
 
 	variant.javaCompile.doFirst {
