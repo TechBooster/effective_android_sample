@@ -94,8 +94,8 @@ public class AndroidBeamFragment extends Fragment implements
         super.onAttach(activity);
 
         Context context = getActivity();
-        PackageManager packageManager = context.getPackageManager();
         try {
+            PackageManager packageManager = context.getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), PackageManager.GET_PERMISSIONS);
 
             // Permissionのチェック
@@ -139,9 +139,8 @@ public class AndroidBeamFragment extends Fragment implements
                                 "</intent-filter>");
             }
         } catch (PackageManager.NameNotFoundException e) {
-            Log.e(TAG, "package name " + context.getPackageName() + " not exsists", e);
+            throw new IllegalStateException("package name " + context.getPackageName() + " not exsists", e);
         }
-        // intent filterのチェック
 
         // コールバックの取得
         if (activity instanceof BeamActionCallback) {
