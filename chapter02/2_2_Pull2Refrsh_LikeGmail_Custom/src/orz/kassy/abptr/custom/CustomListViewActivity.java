@@ -84,7 +84,7 @@ public class CustomListViewActivity extends ListActivity
                 // 文言を設定
                 mHeaderProgressBar.setIndeterminate(false);
                 mHeaderTextView.setVisibility(View.VISIBLE);
-                mHeaderTextView.setText("引くなよ！絶対に引くなよ！");
+                mHeaderTextView.setText("更新するには引いて下さい");
             }
 
             // リストビューを引っ張っている時
@@ -100,7 +100,7 @@ public class CustomListViewActivity extends ListActivity
             @Override
             public void onRefreshStarted() {
                 // 文言を設定
-                mHeaderTextView.setText("絶望がゴールだ... ");
+                mHeaderTextView.setText("更新をしています... ");
                 // プログレスバー登場
                 mHeaderProgressBar.setVisibility(View.VISIBLE);
                 mHeaderProgressBar.setIndeterminate(true);

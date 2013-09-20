@@ -69,9 +69,9 @@ public final class PullToRefreshCustomActivity extends ListActivity {
         // LoadingLayoutに関してカスタマイズ（主に文言）
         ILoadingLayout iLoadingLayout = mPullRefreshListView.getLoadingLayoutProxy(true, true);
         iLoadingLayout.setLastUpdatedLabel("");
-        iLoadingLayout.setReleaseLabel("絶望がお前、のゴールだ");
-        iLoadingLayout.setPullLabel("引くなよ！絶対に引くなよ！");
-        iLoadingLayout.setRefreshingLabel("更新中だよ");
+        iLoadingLayout.setReleaseLabel("離してください、更新します");
+        iLoadingLayout.setPullLabel("さらに下に引いて下さい");
+        iLoadingLayout.setRefreshingLabel("更新中です");
 
         // Add an end-of-list listener
         mPullRefreshListView.setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
