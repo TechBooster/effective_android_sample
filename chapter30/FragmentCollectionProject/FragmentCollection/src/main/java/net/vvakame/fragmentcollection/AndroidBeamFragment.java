@@ -1,10 +1,16 @@
 package net.vvakame.fragmentcollection;
 
 import java.nio.charset.Charset;
+import java.util.List;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -17,20 +23,23 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Parcelable;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 /**
- * 短文をBeamで交換するためのFragment.
+ * Android Beamを簡単に利用するためのFragment.
  *
  * @author vvakame
  */
-public class ShortMessagingFragment extends Fragment implements
+public class AndroidBeamFragment extends Fragment implements
         CreateNdefMessageCallback, OnNdefPushCompleteCallback {
 
+    static final String TAG = AndroidBeamFragment.class.getSimpleName();
+
     /**
-     * {@link net.vvakame.fragmentcollection.ShortMessagingFragment.BeamActionCallback} を取得するためのPicker.
+     * {@link AndroidBeamFragment.BeamActionCallback} を取得するためのPicker.
      *
      * @author vvakame
      */
@@ -80,16 +89,71 @@ public class ShortMessagingFragment extends Fragment implements
         setHasOptionsMenu(true);
     }
 
-    /**
-     * FragmentがActivityに関連付けられた時のイベント. コールバックの取得やNFCの初期化などを行う.
-     */
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
 
-        BeamActionCallbackPicker picker = (BeamActionCallbackPicker) activity;
-        mCallback = picker.getBeamActionCallback();
+        Context context = getActivity();
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), PackageManager.GET_PERMISSIONS);
 
+            // Permissionのチェック
+            if (packageInfo.requestedPermissions == null) {
+                throw new IllegalStateException(
+                        "Android Beam required 1 permission and 1 feature\n" +
+                                "<uses-permission android:name=\"android.permission.NFC\" />\n" +
+                                "<uses-feature android:name=\"android.hardware.nfc\" />");
+            }
+            boolean existsNFCPermission = false;
+            for (String permission : packageInfo.requestedPermissions) {
+                if ("android.permission.NFC".equals(permission)) {
+                    existsNFCPermission = true;
+                }
+            }
+            if (!existsNFCPermission) {
+                throw new IllegalStateException(
+                        "Android Beam required 1 permission\n" +
+                                "<uses-permission android:name=\"android.permission.NFC\" />");
+            }
+
+            // intent filterのチェック
+            Intent intent = new Intent("android.nfc.action.NDEF_DISCOVERED");
+            intent.setPackage(context.getPackageName());
+            intent.addCategory(Intent.CATEGORY_DEFAULT);
+            intent.setType("application/" + context.getPackageName());
+            List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(intent, 0);
+            boolean exsitsThisActivity = false;
+            for (ResolveInfo info : resolveInfos) {
+                if (getActivity().getClass().getCanonicalName().equals(info.activityInfo.name)) {
+                    exsitsThisActivity = true;
+                }
+            }
+            if (!exsitsThisActivity) {
+                throw new IllegalStateException(
+                        "activity required has a intent-filter\n" +
+                                "<intent-filter>\n" +
+                                "<action android:name=\"android.nfc.action.NDEF_DISCOVERED\" />\n" +
+                                "<category android:name=\"android.intent.category.DEFAULT\" />\n" +
+                                "<data android:mimeType=\"application/" + context.getPackageName() + "\" />" +
+                                "</intent-filter>");
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e(TAG, "package name " + context.getPackageName() + " not exsists", e);
+        }
+        // intent filterのチェック
+
+        // コールバックの取得
+        if (activity instanceof BeamActionCallback) {
+            mCallback = (BeamActionCallback) activity;
+        } else if (activity instanceof BeamActionCallbackPicker) {
+            BeamActionCallbackPicker picker = (BeamActionCallbackPicker) activity;
+            mCallback = picker.getBeamActionCallback();
+        } else {
+            throw new IllegalStateException("acitivity must implemented BeamActionCallback or BeamActionCallbackPicker");
+        }
+
+        // NFC有無のチェック
         mNfcAdapter = NfcAdapter.getDefaultAdapter(activity);
         if (mNfcAdapter == null) {
             mCallback.onNfcNotSupported();
@@ -98,6 +162,7 @@ public class ShortMessagingFragment extends Fragment implements
             mCallback.onNfcDisabled();
         }
 
+        // コールバックの設定
         mNfcAdapter.setNdefPushMessageCallback(this, activity);
         mNfcAdapter.setOnNdefPushCompleteCallback(this, activity);
     }
@@ -134,7 +199,7 @@ public class ShortMessagingFragment extends Fragment implements
     }
 
     /**
-     * Beam成功時のコールバック. そのまま {@link net.vvakame.fragmentcollection.ShortMessagingFragment.BeamActionCallback} に渡す.<br>
+     * Beam成功時のコールバック. そのまま {@link AndroidBeamFragment.BeamActionCallback} に渡す.<br>
      * onNdefPushComplete はUIスレッド以外で実行されるのでUIスレッドで実行するようにしてやる.
      */
     @Override
@@ -184,7 +249,7 @@ public class ShortMessagingFragment extends Fragment implements
         if (mNfcAdapter == null) {
             return;
         }
-        inflater.inflate(R.menu.shortmessaging_beam, menu);
+        inflater.inflate(R.menu.android_beam, menu);
     }
 
     /**
