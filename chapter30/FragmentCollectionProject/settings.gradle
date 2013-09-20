@@ -1,1 +1,1 @@
-include ':FragmentCollection'
+include ':FragmentCollection', ':FragmentCollectionUsage'
