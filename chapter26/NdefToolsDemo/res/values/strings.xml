@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ndef tools for Android demo</string>
+	<string name="touch_me">NFCタグをタッチしてください</string>
+
+</resources>
