@@ -84,7 +84,7 @@ public class MainActivity extends FragmentActivity
 
 	@Override
 	public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-		// ブックマークの読み込ンだデータをAdapterに設定
+		// ブックマークの読み込んだデータをAdapterに設定
 		mAdapter.swapCursor(data);
 	}
 
