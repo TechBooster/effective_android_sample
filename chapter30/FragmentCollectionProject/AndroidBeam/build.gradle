@@ -28,3 +28,18 @@ dependencies {
     // The Support Repository (separate from the corresponding library) can be found in the Extras category.
     // compile 'com.android.support:appcompat-v7:18.0.0'
 }
+
+apply plugin: 'maven'
+
+def deployTo = new File(rootDir, 'repository')
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository url: "file://${deployTo.absolutePath}"
+            pom.version = '0.1.0'
+            pom.groupId = 'net.vvakame'
+            pom.artifactId = 'android-fragmentcollection-androidbeam'
+        }
+    }
+}

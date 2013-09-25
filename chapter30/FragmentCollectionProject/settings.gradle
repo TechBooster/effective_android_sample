@@ -1,1 +1,1 @@
-include ':FragmentCollection', ':FragmentCollectionUsage'
+include ':FragmentCollectionUsage', ':AndroidBeam'
