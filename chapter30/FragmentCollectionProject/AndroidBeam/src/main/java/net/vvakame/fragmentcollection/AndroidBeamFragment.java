@@ -7,7 +7,6 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -23,10 +22,11 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Parcelable;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import net.vvakame.fragmentcollection.androidbeam.R;
 
 /**
  * Android Beamを簡単に利用するためのFragment.

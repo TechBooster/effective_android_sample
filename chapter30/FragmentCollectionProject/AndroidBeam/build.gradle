@@ -29,19 +29,17 @@ dependencies {
     // compile 'com.android.support:appcompat-v7:18.0.0'
 }
 
-// Mavenプラグインの利用を宣言
 apply plugin: 'maven'
 
-// デプロイ先を宣言(プロジェクトルート配下のrepositoryディレクトリ)
 def deployTo = new File(rootDir, 'repository')
 
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository url: "file://${deployTo.absolutePath}" // デプロイ先
-            pom.version = '0.1.0' // バージョン
-            pom.groupId = 'net.vvakame' // グループID
-            pom.artifactId = 'android-fragment-collection' // アーティファクトID
+            repository url: "file://${deployTo.absolutePath}"
+            pom.version = '0.1.0'
+            pom.groupId = 'net.vvakame'
+            pom.artifactId = 'android-fragmentcollection-androidbeam'
         }
     }
 }
