@@ -7,7 +7,6 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -17,16 +16,17 @@ import android.nfc.NfcAdapter;
 import android.nfc.NfcAdapter.CreateNdefMessageCallback;
 import android.nfc.NfcAdapter.OnNdefPushCompleteCallback;
 import android.nfc.NfcEvent;
-import android.os.Bundle;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.Parcelable;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import net.vvakame.fragmentcollection.androidbeam.R;
 
 /**
  * Android Beamを簡単に利用するためのFragment.
@@ -82,12 +82,6 @@ public class AndroidBeamFragment extends Fragment implements
     NfcAdapter mNfcAdapter;
 
     BeamActionCallback mCallback;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-    }
 
     @Override
     public void onAttach(Activity activity) {
@@ -257,11 +251,12 @@ public class AndroidBeamFragment extends Fragment implements
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.beam_settings) {
-            // BeamのON/OFF設定画面へ遷移可能だが、ICS 4.0.1 では遷移先が発見できず例外が発生する.
-            // 4.0.3 なら大丈夫.
-            Intent intent = new Intent(Settings.ACTION_NFCSHARING_SETTINGS);
-            // Intent intent = new Intent(Settings.ACTION_WIRELESS_SETTINGS);
-
+            Intent intent;
+            if (Build.VERSION.SDK_INT < 15) {
+                intent = new Intent(Settings.ACTION_WIRELESS_SETTINGS);
+            } else {
+                intent = new Intent(Settings.ACTION_NFCSHARING_SETTINGS);
+            }
             startActivity(intent);
             return true;
         } else {
