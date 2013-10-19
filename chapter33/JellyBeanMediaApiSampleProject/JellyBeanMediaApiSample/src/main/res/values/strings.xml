@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">JB Media APIs</string>
+    <string name="action_settings">Settings</string>
+    <string name="play_vorbis_plain_mp">Play .ogg file(plain) w/MediaPlayer</string>
+    <string name="play_vorbis_plain_mc">Play .ogg file(plain) w/MediaCodec</string>
+
+</resources>

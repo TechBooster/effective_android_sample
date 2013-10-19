@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">UiAutomationSample</string>
+    <string name="action_network">ネットワーク設定</string>
+    <string name="airplane_mode_on">機内モードがOnです</string>
+    <string name="airplane_mode_off">機内モードがOffです</string>
+
+</resources>

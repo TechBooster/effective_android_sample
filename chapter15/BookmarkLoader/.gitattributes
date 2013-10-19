@@ -1,0 +1,4 @@
+*.bat eol=crlf
+custom_rules.xml eol=crlf
+*.xml eol=crlf
+*.java eol=crlf

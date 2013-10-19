@@ -1,0 +1,1 @@
+google-play-services_libへの参照は、環境にあわせて適切に変更してください。

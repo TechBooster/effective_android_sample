@@ -1,0 +1,5 @@
+org.ndeftools
+org.ndeftools.android
+org.ndeftools.externaltype
+org.ndeftools.wellknown
+org.ndeftools.wellknown.handover

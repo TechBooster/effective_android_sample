@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AppOpsCheckSample</string>
+    <string name="action_settings">Settings</string>
+    <string name="error_dialog_title">AppOps Status</string>
+    <string name="appops_ignored">Contacts access is ignored with AppOps</string>
+    <string name="appops_errored">Error occurred in AppOps</string>
+    <string name="appops_invoke">Settings</string>
+    <string name="cancel">Cancel</string>
+    <string name="close">Close</string>
+
+</resources>
