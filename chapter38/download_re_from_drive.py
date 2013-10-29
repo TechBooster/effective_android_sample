@@ -16,8 +16,6 @@
 #   limitations under the License.
 #
 '''
-C84 Techbooster 『Effective Android』 第21章用 サンプル
-
 原稿版と使っているAPIは同じですが、構成が変わっている点、ご容赦ください。
 大体以下のような違いがあります (他にもあるかもしれません)。
 
