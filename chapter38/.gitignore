@@ -1,0 +1,4 @@
+*.pyc
+*~
+secret.py
+credential_storage

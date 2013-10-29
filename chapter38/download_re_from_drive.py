@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 #
 #   Copyright [2013] [amedama (@amedama)]
 #
@@ -24,12 +24,11 @@ C84 Techbooster 『Effective Android』 第21章用 サンプル
  - インデントをPython標準の4 spacesに変更。
  - 注釈を追加。
  - 公開するべきでない情報 (ID/SECRET) を別ファイルに移動。
-  - 読んでいる方がこのスクリプトを使うには別途
-    secret.py を用意する必要があります。
+  - 読んでいる方がこのスクリプトを試す場合は、別途このファイルがある
+    ディレクトリにsecret.py を用意するか、このコードを書き換えてください。
  - エラー対処用のコードを余計に追加。
 
-読者の方々の環境で動作させるためには前準備としてGoogle Drive内の
-フォルダも作らないといけません。ちょっと面倒ですね。
+前準備としてGoogle Drive内のフォルダも作らないといけません。
 
  Licensed under the Apache License, Version 2.0 (the "License").
 '''
@@ -72,7 +71,6 @@ CLIENT_SECRET = secret.CLIENT_SECRET
 OAUTH_SCOPE = 'https://www.googleapis.com/auth/drive.readonly'
 
 # デスクトップアプリケーションはリダイレクト先にこのURNを使います。
-# 蛇足ですけども URI には URL も URN も含むってのは、良いですね。
 REDIRECT_URI = 'urn:ietf:wg:oauth:2.0:oob'
 
 if __name__ == '__main__':
@@ -93,7 +91,7 @@ if __name__ == '__main__':
 
     # "c84_techbooster" という名前のフォルダを調べます。
     param = {'q': (u"title = '{}' and mimeType = '{}'"
-                   .format('c84_techbooster', 
+                   .format('c84_techbooster',
                            'application/vnd.google-apps.folder'))}
     root_items  = service.files().list(**param).execute()['items']
     ''' こうやっても必要な情報は取れます。
