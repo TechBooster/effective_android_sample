@@ -115,9 +115,6 @@ public class AppOpsCheck {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
             return MODE_ALLOWED;
         }
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            return MODE_ALLOWED;
-        }
 
         int appOpsMode = MODE_ERRORED; /* AppOpsManager.MODE_ERRORED */
         Class appOpsClass = null;
