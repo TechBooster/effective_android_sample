@@ -1,10 +1,13 @@
 package com.example.appopschecksample;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.app.DialogFragment;
@@ -110,10 +113,7 @@ public class MainActivity extends FragmentActivity
     // メニューから設定が選択されたら、AppOps設定画面を呼び出す。
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent();
-        intent.setClassName("com.android.settings",
-                "com.android.settings.Settings$AppOpsSummaryActivity");
-        startActivity(intent);
+        invokeAppOpsSummary(this);
 
         return true;
     }
@@ -178,21 +178,23 @@ public class MainActivity extends FragmentActivity
             if (mode == AppOpsCheck.MODE_IGNORED) {
                 // AppOps状態が無効なら、ダイアログにその旨を表示する。
                 // また、ダイアログに設定画面を呼び出すボタンも表示する。
-                dialog = new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.error_dialog_title)
-                    .setMessage(R.string.appops_ignored)
-                    .setPositiveButton(R.string.appops_invoke, new DialogInterface.OnClickListener() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
+                .setTitle(R.string.error_dialog_title)
+                .setMessage(R.string.appops_ignored)
+                .setNegativeButton(R.string.cancel,null);
+
+                // Android 4.3以上ならAppOps画面を呼び出すボタンを表示する
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                    builder.setPositiveButton(R.string.appops_invoke, new DialogInterface.OnClickListener() {
                         
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Intent intent = new Intent();
-                            intent.setClassName("com.android.settings",
-                                    "com.android.settings.Settings$AppOpsSummaryActivity");
-                            startActivity(intent);
+                            invokeAppOpsSummary(getActivity());
                         }
-                    })
-                    .setNegativeButton(R.string.cancel,null)
-                    .create();
+                    });
+                }
+
+                dialog = builder.create();
             } else {
                 // AppOps状態がエラーになった場合は、アプリを終了する。
                 dialog = new AlertDialog.Builder(getActivity())
@@ -211,6 +213,23 @@ public class MainActivity extends FragmentActivity
 
             dialog.setCanceledOnTouchOutside(false);
             return dialog;
+        }
+    }
+    
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    private static void invokeAppOpsSummary(Context context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            Intent intent = new Intent();
+            intent.setClassName("com.android.settings",
+                    "com.android.settings.Settings");
+            intent.setAction(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_DEFAULT);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                    Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                    Intent.FLAG_ACTIVITY_NO_HISTORY |
+                    Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+            intent.putExtra(":android:show_fragment", "com.android.settings.applications.AppOpsSummary");
+            context.startActivity(intent);
         }
     }
 }
