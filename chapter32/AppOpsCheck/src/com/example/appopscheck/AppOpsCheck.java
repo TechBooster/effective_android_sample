@@ -12,19 +12,19 @@ import android.os.Build;
  * AppOps状態確認用クラス
  */
 public class AppOpsCheck {
-    /* AppOpsService name from Context in android_4.3.0_r2.1 */
+    /* AppOpsService name from Context in android_4.4.0_r1.0 */
     private static final String APP_OPS_SERVICE = "appops";
 
     /* class and method names for reflection */
     private static final String APP_OPS_MANAGER = "android.app.AppOpsManager";
     private static final String CHECK_OP_NO_THROW = "checkOpNoThrow";
 
-    /* AppOps mode from AppOpsManager in android_4.3.0_r2.1 */
+    /* AppOps mode from AppOpsManager in android_4.4.0_r1.0 */
     public static final int MODE_ALLOWED = 0;
     public static final int MODE_IGNORED = 1;
     public static final int MODE_ERRORED = 2;
 
-    /* operation switch code from AppOpsmanager in android_4.3.0_r2.1 */
+    /* operation switch code from AppOpsmanager in android_4.4.0_r1.0 */
     public static final int OP_NONE = -1;
     public static final int OP_COARSE_LOCATION = 0;
     public static final int OP_FINE_LOCATION = 1;
@@ -57,8 +57,23 @@ public class AppOpsCheck {
     public static final int OP_PLAY_AUDIO = 28;
     public static final int OP_READ_CLIPBOARD = 29;
     public static final int OP_WRITE_CLIPBOARD = 30;
+    public static final int OP_TAKE_MEDIA_BUTTONS = 31;
+    public static final int OP_TAKE_AUDIO_FOCUS = 32;
+    public static final int OP_AUDIO_MASTER_VOLUME = 33;
+    public static final int OP_AUDIO_VOICE_VOLUME = 34;
+    public static final int OP_AUDIO_RING_VOLUME = 35;
+    public static final int OP_AUDIO_MEDIA_VOLUME = 36;
+    public static final int OP_AUDIO_ALARM_VOLUME = 37;
+    public static final int OP_AUDIO_NOTIFICATION_VOLUME = 38;
+    public static final int OP_AUDIO_BLUETOOTH_VOLUME = 39;
+    public static final int OP_WAKE_LOCK = 40;
+    public static final int OP_MONITOR_LOCATION = 41;
+    public static final int OP_MONITOR_HIGH_POWER_LOCATION = 42;
+    
+    private static final int _NUM_OP_API_LEVEL_18 = 31;
+    private static final int _NUM_OP_API_LEVEL_19 = 43;
 
-    /* <operation number>-<operation name> from AppOpsManager in android_4.3.0_r2.1 */
+    /* <operation number>-<operation name> from AppOpsManager in android_4.4.0_r1.0 */
     private static String[] sOpNames = new String[]{
             "COARSE_LOCATION",
             "FINE_LOCATION",
@@ -91,6 +106,18 @@ public class AppOpsCheck {
             "PLAY_AUDIO",
             "READ_CLIPBOARD",
             "WRITE_CLIPBOARD",
+            "TAKE_MEDIA_BUTTONS",
+            "TAKE_AUDIO_FOCUS",
+            "AUDIO_MASTER_VOLUME",
+            "AUDIO_VOICE_VOLUME",
+            "AUDIO_RING_VOLUME",
+            "AUDIO_MEDIA_VOLUME",
+            "AUDIO_ALARM_VOLUME",
+            "AUDIO_NOTIFICATION_VOLUME",
+            "AUDIO_BLUETOOTH_VOLUME",
+            "WAKE_LOCK",
+            "MONITOR_LOCATION",
+            "MONITOR_HIGH_POWER_LOCATION",
     };
 
     private Context mContext;
@@ -113,6 +140,15 @@ public class AppOpsCheck {
 
     public int checkOpNoThrow(int op, String packageName) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            return MODE_ALLOWED;
+        }
+
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.JELLY_BEAN_MR2 && op >= _NUM_OP_API_LEVEL_18) {
+            return MODE_ALLOWED;
+        }
+
+
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT && op >= _NUM_OP_API_LEVEL_19) {
             return MODE_ALLOWED;
         }
 
